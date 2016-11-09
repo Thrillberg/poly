@@ -78,25 +78,32 @@ Dictionary = React.createClass( {
   },
 
   onDeletePhrasePair: function(phrasePairId) {
-    if(window.confirm("Are you sure you want to delete this phrase?")) {
-      $.ajax({
-        url: '/phrase_pairs/' + phrasePairId,
-        type: 'DELETE',
-        success: function(response) {
-          var phrasePairs = this.state.phrasePairs;
-          var indexToRemove = _.findIndex(phrasePairs, function(phrasePair) {
-            return phrasePair.id == response.id;
-          });
-          phrasePairs.splice(indexToRemove, 1);
-          this.setState({
-            phrasePairs: phrasePairs
+    bootbox.confirm({
+      message: "Are you sure you want to delete this phrase?",
+      closeButton:false,
+      callback: function(result) {
+        if(result === true) {
+          $.ajax({
+            url: '/phrase_pairs/' + phrasePairId,
+            type: 'DELETE',
+            success: function(response) {
+              // ERRORING HERE - NO PHRASE PAIRS
+              var phrasePairs = this.state.phrasePairs;
+              var indexToRemove = _.findIndex(phrasePairs, function(phrasePair) {
+                return phrasePair.id == response.id;
+              });
+              phrasePairs.splice(indexToRemove, 1);
+              this.setState({
+                phrasePairs: phrasePairs
+              })
+            }.bind(this),
+            error: function() {
+              console.log('Error: Could not delete phrase pair')
+            }
           })
-        }.bind(this),
-        error: function() {
-          console.log('Error: Could not delete phrase pair')
         }
-      })
-    };
+      }
+    })
   },
 
   onCancelEditPhrase: function() {
