@@ -107,7 +107,11 @@ class Dictionary extends React.Component {
   }
 
   onCancelEditPhrase() {
-    this.setState({ isPhraseInputActive: !this.state.isPhraseInputActive });
+    this.setState({
+      isPhraseInputActive: !this.state.isPhraseInputActive,
+      sourcePhrase:"",
+      targetPhrase:""
+    });
   }
 
   renderPhrasePairs() {
