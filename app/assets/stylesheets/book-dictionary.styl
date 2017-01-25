@@ -65,7 +65,7 @@
     width 100%
     float left
     background #fafcfc
-    box-shadow 0 -1px 2px rgba(0,0,0,0.1)
+    border-top 2px solid #e9f1f3
 
     label
       float left
@@ -81,24 +81,33 @@
         float left
         margin 6px 6px 0 0
 
-    button
+    .inputOptions
       float right
-      margin 12px
-      width 40px
-      height 40px
-      border-radius 100%
-      outline none
-      background transparent
+      padding-right 5px
 
-      &:hover
-        background-color #f5f5f5
+      button
+        float left
+        margin 5px 3px
+        width 40px
+        height 40px
+        border-radius 100%
+        outline none
+        background-color transparent
+        &:nth-child(2)
+          transition opacity 0.2s ease-in
+
+        &:hover
+          background-color #f5f5f5
+
+        .video
+          opacity .5
 
   .newPhrase
     float left
     width 100%
     border-top 1px solid #f0F3F5
     overflow hidden
-    transition height $time ease-in-out margin-top $time ease-in-out margin-bottom $time ease-in-out
+    transition height $time ease-in-out, margin-top $time ease-in-out, margin-bottom $time ease-in-out
 
     input
       border none
@@ -129,3 +138,4 @@
       cursor pointer
       font-size 1em
       outline none
+
