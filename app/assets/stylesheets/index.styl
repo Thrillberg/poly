@@ -1,18 +1,3 @@
-.logIn, .loggedIn
-  float right
-  margin 15px
-
-.loggedIn
-  a
-    textButton()
-    background transparent
-    color $darkBlue
-
-    &:hover
-      background lighten($blue,90%)
-    &:visited
-      background transparent
-
 .logIn
   p
     padding 9px
@@ -22,7 +7,6 @@
     textButton()
     background transparent
     color black
-    // border 1px solid rgba(71,153,252,1)
 
     &.signUp
       color $white
@@ -63,14 +47,10 @@
     border-radius 2*$radius
     overflow hidden
     box-shadow 0 1px 2px rgba(0,0,0,0.1)
-    // border-left 1px solid rgba(0,0,0,0.15)
-    // border-right 1px solid rgba(0,0,0,0.15)
-    // border-bottom 1px solid rgba(0,0,0,0.15)
 
     .controlPanel
       boxShadow()
       height 60px
-      // border-radius 2*$radius 2*$radius 0 0
 
       button, a
         border none
