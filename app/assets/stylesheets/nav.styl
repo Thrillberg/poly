@@ -57,9 +57,11 @@ nav
     float right
     border-radius $radius
     overflow hidden
+    transition height $time ease-in-out
 
     &:hover
-      height (55*3)px+4
+      height (55*3)px+6
+      background #EAF1F7
       box-shadow 0 1px 2px rgba(0,0,0,0.1)
 
       a
@@ -75,7 +77,6 @@ nav
       border 1px solid transparent
       padding 20px 26px
       background transparent
-      background #EAF1F7
       color $darkBlue
 
       &:hover
